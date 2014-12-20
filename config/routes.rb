@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-   authenticated :user do
 root :to => 'home#index'
-end
-devise_for :users
-resources :users, :only => [:show, :index]
-constraints(Subdomain) do
-match '/' => 'profiles#show'
-end
-root :to => "home#index"
-end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
